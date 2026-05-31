@@ -3,32 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game 🐍</title>
+    <title>🐍 Snake Game - Classic Arcade Edition</title>
 
-    <!-- Link CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="game-container">
-        <h1>🐍 Snake Game</h1>
 
-        <!-- Score -->
-        <div class="score-board">
-            Score: <span id="score">0</span>
+        <!-- Header -->
+        <div class="game-header">
+            <h1>🐍 Snake Game</h1>
         </div>
 
-        <!-- Canvas Game Area -->
+        <!-- Score Board -->
+        <div class="score-board">
+            <div class="score">
+                Score: <span id="score">0</span>
+            </div>
+            <div class="high-score">
+                High Score: <span id="highScore">0</span>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
         <canvas id="gameCanvas" width="400" height="400"></canvas>
 
         <!-- Controls -->
-        <div class="controls">
-            <p>Use Arrow Keys to Play</p>
-            <button onclick="startGame()">Start Game</button>
+        <div class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+            <button id="resetBtn" class="btn btn-danger">Reset</button>
         </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <p><strong>Controls:</strong></p>
+            <p>⬆️⬇️⬅️➡️ Arrow Keys or WASD</p>
+            <p>⏸️ Press SPACE to Pause/Resume</p>
+        </div>
+
     </div>
 
-    <!-- Game Script -->
+    <!-- JavaScript -->
     <script src="game.js"></script>
 
 </body>
