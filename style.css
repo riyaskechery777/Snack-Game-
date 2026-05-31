@@ -5,14 +5,12 @@
 }
 
 body {
-    font-family: 'Arial', 'Segoe UI', monospace;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
-    padding: 20px;
+  padding: 0;
+  text-align: center;
+  background: #111;
+  color: white;
+  font-family: Arial;
 }
 
 .game-container {
@@ -46,12 +44,14 @@ body {
 }
 
 #gameCanvas {
-    border: 3px solid #333;
-    border-radius: 10px;
-    background-color: #111;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: black;
+  border: 2px solid white;
+
+  /* Responsive size */
+  width: 90vw;
+  height: 90vw;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .game-controls {
