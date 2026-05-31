@@ -20,8 +20,8 @@ class SnakeGame {
         this.isPaused = false;
         this.speed = 100;
 
-        // DOM elements (FIXED)
-        this.scoreElement = document.getElementById("score");
+        // DOM elements
+        this.scoreElement = document.getElementById("score"); // FIXED
         this.highScoreElement = document.getElementById('highScore');
         this.startBtn = document.getElementById('startBtn');
         this.pauseBtn = document.getElementById('pauseBtn');
@@ -54,25 +54,25 @@ class SnakeGame {
         this.resetBtn.addEventListener('click', () => this.resetGame());
     }
 
+    // ✅ UPDATED CONTROLS (your logic safely added)
     handleKeyPress(e) {
         const key = e.key;
-        const keyMap = {
-            'ArrowUp': 'UP',
-            'ArrowDown': 'DOWN',
-            'ArrowLeft': 'LEFT',
-            'ArrowRight': 'RIGHT',
-            'w': 'UP',
-            's': 'DOWN',
-            'a': 'LEFT',
-            'd': 'RIGHT'
-        };
 
-        if (keyMap[key]) {
-            e.preventDefault();
-            this.changeDirection(keyMap[key]);
+        if (key === "ArrowUp" || key === "w") {
+            this.changeDirection("UP");
+        } 
+        else if (key === "ArrowDown" || key === "s") {
+            this.changeDirection("DOWN");
+        } 
+        else if (key === "ArrowLeft" || key === "a") {
+            this.changeDirection("LEFT");
+        } 
+        else if (key === "ArrowRight" || key === "d") {
+            this.changeDirection("RIGHT");
         }
 
-        if (key === ' ' || key === 'Space') {
+        // Pause / Resume
+        if (key === " " || key === "Space") {
             e.preventDefault();
             this.togglePause();
         }
@@ -212,7 +212,7 @@ class SnakeGame {
             this.ctx.stroke();
         }
 
-        // Pause
+        // Pause screen
         if (this.isPaused && this.isRunning) {
             this.ctx.fillStyle = 'rgba(0,0,0,0.7)';
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -288,7 +288,7 @@ class SnakeGame {
     }
 }
 
-// Start
+// Start game
 window.addEventListener('DOMContentLoaded', () => {
     new SnakeGame();
 });
